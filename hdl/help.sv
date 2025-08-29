@@ -11,10 +11,9 @@ package processor_help;
 
   localparam SUPER_SCALAR_WIDTH = 4;
 
-  localparam PHYSICAL_REGISTER_FILE_SIZE = 128;
-  localparam LOG_PHYSICAL_REGISTER_FILE_SIZE = $clog2(PHYSICAL_REGISTER_FILE_SIZE);
-  localparam ARCHITECTURAL_REGISTER_FILE_SIZE = 64;
-  localparam LOG_ARCHITECTURAL_REGISTER_FILE_SIZE = $clog2(ARCHITECTURAL_REGISTER_FILE_SIZE);
+  localparam REGISTER_FILE_SIZE = 128;
+  localparam LOG_REGISTER_FILE_SIZE = $clog2(PHYSICAL_REGISTER_FILE_SIZE);
+  localparam REGISTER_FILE_PORT_SETS = SUPER_SCALAR_WIDTH;
 
   typedef logic [REGISTER_FILE_SIZE-1:0] RegisterFileReadRequest;
   typedef struct logic {
