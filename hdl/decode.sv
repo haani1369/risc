@@ -10,9 +10,9 @@ module decode (
   input wire fetch_valid_in,
   input wire Word fetch_data_in [SUPER_SCALAR_WIDTH-1:0],
 
-  input wire rename_ready_in,
-  output logic rename_valid_out,
-  output DecodeResult rename_payload_out [SUPER_SCALAR_WIDTH-1:0]
+  input wire execute_ready_in,
+  output logic execute_valid_out,
+  output DecodeResult execute_payload_out [SUPER_SCALAR_WIDTH-1:0]
 );
 
   logic rename_handshake [SUPER_SCALAR_WIDTH-1:0];

@@ -73,13 +73,23 @@ module processor_core (
     .decode_valid_in(),
     .decode_payload_in(),
 
-    .dispatch_ready_in(),
-    .dispatch_valid_out(),
-    .dispatch_payload_out(),
-
-    .retire_valid_in(),
-    .retire_freed_register_in()
+    .execute_ready_in(),
+    .execute_valid_out(),
+    .execute_payload_out(),
   );
+
+  execute my_execute (
+  .clk_in(),
+  .rst_in(),
+
+  .decode_ready_out(),
+  .decode_valid_in(),
+  .decode_payload_in(),
+
+  .writeback_ready_in(),
+  .writeback_valid_out(),
+  .writeback_payload_out()
+);
 
 endmodule
 
