@@ -79,17 +79,17 @@ module processor_core (
   );
 
   execute my_execute (
-  .clk_in(),
-  .rst_in(),
+    .clk_in(),
+    .rst_in(),
 
-  .decode_ready_out(),
-  .decode_valid_in(),
-  .decode_payload_in(),
+    .decode_ready_out(),
+    .decode_valid_in(),
+    .decode_payload_in(),
 
-  .writeback_ready_in(),
-  .writeback_valid_out(),
-  .writeback_payload_out()
-);
+    .writeback_ready_in(),
+    .writeback_valid_out(),
+    .writeback_payload_out()
+  );
 
 endmodule
 
