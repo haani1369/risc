@@ -21,7 +21,6 @@ package processor_help;
     logic write_enable,
     logic Word data
   } RegisterFileWriteRequest;
-  typedef logic [REGISTER_FILE_PORT_SETS-1:0] Word RegisterFileReadResponse; 
 
   // fetch
   typedef enum logic [1:0] {

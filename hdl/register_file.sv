@@ -9,8 +9,8 @@ module register_file (
   input wire RegisterFileReadRequest read_ports_reg0_request_in [SUPER_SCALAR_WIDTH-1:0],
   input wire RegisterFileReadRequest read_ports_reg1_request_in [SUPER_SCALAR_WIDTH-1:0],
   input wire RegisterFileWriteRequest write_ports_reg_request_in [SUPER_SCALAR_WIDTH-1:0],
-  output RegisterFileReadResponse read_ports_reg0_response_out [SUPER_SCALAR_WIDTH-1:0],
-  output RegisterFileReadResponse read_ports_reg1_response_out [SUPER_SCALAR_WIDTH-1:0]
+  output Word read_ports_reg0_response_out [SUPER_SCALAR_WIDTH-1:0],
+  output Word read_ports_reg1_response_out [SUPER_SCALAR_WIDTH-1:0]
 );
   Word actual_register_file [REGISTER_FILE_SIZE-1:0];
 
@@ -26,8 +26,8 @@ module register_file (
 
   always_comb begin
     for (int i = 0; i < SUPER_SCALAR_WIDTH; i=i+1) begin
-      read_ports_reg0_response_out = actual_register_file[i][read_ports_reg0_request_in[i]];
-      read_ports_reg1_response_out = actual_register_file[i][read_ports_reg1_request_in[i]];
+      read_ports_reg0_response_out[i] = actual_register_file[i][read_ports_reg0_request_in[i]];
+      read_ports_reg1_response_out[i] = actual_register_file[i][read_ports_reg1_request_in[i]];
     end
   end
 
