@@ -1,4 +1,1 @@
-BROKEN BRANCH
-Nothing to see here... yet
-
-Check out the `simple` branch
+Simple 4-cycle pipelined processor
