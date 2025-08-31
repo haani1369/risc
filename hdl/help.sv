@@ -36,7 +36,7 @@ package processor_help;
   } FetchRequest;
 
   typedef struct logic {
-    Word pc;
+    Word program_counter;
     Word instruction;
   } FetchResult;
 
@@ -103,18 +103,15 @@ package processor_help;
     logic [LOG_REGISTER_FILE_SIZE-1:0] source_register_1;
     logic [LOG_REGISTER_FILE_SIZE-1:0] source_register_2;
     Word immediate;
+    Word program_counter;
   } DecodeResult;
 
   typedef struct logic {
     InstructionType instruction_type;
-    BranchOperation branch_operation;
-    ALUOperation alu_operation;
-    MemoryOperation memory_operation;
+    Word program_counter;
     logic [LOG_ARCHITECTURAL_REGISTER_FILE_SIZE-1:0] destination_register;
-    logic [LOG_ARCHITECTURAL_REGISTER_FILE_SIZE-1:0] source_register_1;
-    logic [LOG_ARCHITECTURAL_REGISTER_FILE_SIZE-1:0] source_register_2;
-    Word immediate;
-  } RenameResult;
+    Word data;
+  } ExecuteResult;
 
 endpackage
 

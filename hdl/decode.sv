@@ -8,7 +8,7 @@ module decode (
 
   output logic fetch_ready_out,
   input wire fetch_valid_in,
-  input wire Word fetch_data_in [SUPER_SCALAR_WIDTH-1:0],
+  input wire Word fetch_payload_in [SUPER_SCALAR_WIDTH-1:0],
 
   input wire execute_ready_in,
   output logic execute_valid_out,
@@ -25,12 +25,19 @@ module decode (
     fetch_handshake = fetch_ready_out && fetch_valid_in;
   end
 
+  Word program_counter;
+  Word fetch_data_in;
+  fetch_data_in = fetch_payload_in.instruction;
+  program_counter = fetch_payload_in.program_counter;
+
   always_ff @(posedge clk_in) begin
     if (rst_in) begin
       execute_valid_out <= 1'b0;
     end else begin
       if (fetch_handshake) begin // new data to decode and handoff
         for (int i = 0; i < SUPER_SCALAR_WIDTH; i=i+1) begin
+          execute_payload_out[i].program_counter = program_counter;
+
           case (fetch_data_in[i][3:0]) // opcode
             LUI: begin
               execute_payload_out[i].instruction_type <= LUI;
