@@ -1,1 +1,1 @@
-Simple 4-cycle pipelined processor
+Simple 4-stage pipelined processor
